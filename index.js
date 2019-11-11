@@ -43,7 +43,7 @@ function makePersonObject(id, name, email) {
   let person = {
     id,
     name,
-    email: email
+    email
   }
   return person;
 }
@@ -61,8 +61,8 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(name) {
-  return `Hello, my name is ${name}`;
+function getName(person) {
+  return `Hello, my name is ${person.name}.`;
 }
 
 /**
@@ -200,7 +200,7 @@ function sortCarInventory(inventory) {
   for (let i = 0; i < inventory.length; i++) {
     carModels.push(inventory[i].car_model);
   }
-  carModels.sort();
+  return carModels.sort();
 }
 
 
@@ -305,8 +305,8 @@ function carMaker(num) {
   let car = {
     odometer: num,
     drive: function(distance){
-      let newOdometer = num + distance;
-      return newOdometer;
+      car.odometer = num + distance;
+      return car.odometer;
     }
   }
   return car;
